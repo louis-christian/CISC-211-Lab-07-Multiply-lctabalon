@@ -37,3 +37,4 @@
 # added by VB
 *.elf
 *.hex
+*.s~
