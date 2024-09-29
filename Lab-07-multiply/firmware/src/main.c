@@ -455,13 +455,16 @@ int main ( void )
         {
             isRTCExpired = false;
             isUSARTTxComplete = false;
+            uint32_t numPointsMax = 40;
+            uint32_t pointsScored = numPointsMax * totalPassCount / totalTests;
             snprintf((char*)uartTxBuffer, MAX_PRINT_LEN,
                     "========= %s: Lab 7 Multiply: ALL TESTS COMPLETE: Post-test Idle Cycle Number: %ld\r\n"
-                    "Summary of tests: %ld of %ld tests passed; score: %ld/20 pts\r\n"
+                    "Summary of tests: %ld of %ld tests passed\r\n"
+                    "Final score for test cases: %ld of %ld points\r\n"
                     "\r\n",
                     (char *) nameStrPtr, idleCount, 
                     totalPassCount, totalTests,
-                    20*totalPassCount/totalTests); 
+                    pointsScored, numPointsMax); 
 
 #if USING_HW 
             DMAC_ChannelTransfer(DMAC_CHANNEL_0, uartTxBuffer, \
