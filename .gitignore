@@ -37,4 +37,7 @@
 # added by VB
 *.elf
 *.hex
+*.c~
 *.s~
+*.swp
+*.DS_Store
